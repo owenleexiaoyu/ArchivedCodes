@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="AppData"></dbname>
+    <version value="3"></version>
+    <list>
+        <mapping class="com.redant.childcare.entry.UserInfo"></mapping>
+        <mapping class="com.redant.childcare.entry.DaliyData"></mapping>
+    </list>
+</litepal>

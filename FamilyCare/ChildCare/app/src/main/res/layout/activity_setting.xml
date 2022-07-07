@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/setting_tv_link_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="已关联家长"
+        android:layout_margin="10dp"/>
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.5dp"-->
+        <!--android:background="@android:color/black"/>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:id="@+id/setting_ll_link1">
+
+        <TextView
+            android:id="@+id/setting_tv_link1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="185424325"
+            android:textSize="19sp" />
+
+        <Button
+            android:id="@+id/setting_btn_note1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="@string/no_note"
+            android:textSize="16sp"
+            android:gravity="right|center_vertical"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/setting_ll_link2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/setting_tv_link2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="185424325"
+            android:textSize="19sp" />
+
+        <Button
+            android:id="@+id/setting_btn_note2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="@string/no_note"
+            android:textSize="16sp"
+            android:gravity="right|center_vertical"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.5dp"-->
+        <!--android:background="@android:color/black"/>-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="目标设定"
+        android:layout_margin="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/setting_tv_goal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="每日5000步"
+            android:textSize="19sp" />
+
+        <Button
+            android:id="@+id/setting_btn_goal_edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="修改"
+            android:textSize="16sp"
+            android:gravity="right|center_vertical"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/setting_btn_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="推送运动数据"
+        android:layout_margin="20dp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/commonbtnbg_selector"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="推送示警信号"
+        android:onClick="sendWarning"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/commonbtnbg_selector"/>
+    <Button
+        android:id="@+id/setting_btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        android:textColor="@android:color/white"
+        android:layout_margin="20dp"
+        android:background="@drawable/commonbtnbg_selector"/>
+
+
+</LinearLayout>

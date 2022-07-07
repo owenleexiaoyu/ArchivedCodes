@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">儿童监护·儿童端</string>
+    <string name="tab1">运动</string>
+    <string name="tab2">监护</string>
+    <string name="tab3">评分</string>
+    <string name="tab4">我的</string>
+    <string name="finish_edit">完成修改</string>
+    <string name="bind">绑定</string>
+    <string name="no_note">无备注</string>
+    <string name="logout">退出登录</string>
+    <string name="sport_tip_0">开始运动吧，离目标还很远。</string>
+    <string name="sport_tip_1">才运动了一点点，要加把劲啊。</string>
+    <string name="sport_tip_2">步数有点少啊，多出去走走。</string>
+    <string name="sport_tip_3">运动量达到目标的及格线了，加油吧。</string>
+    <string name="sport_tip_4">表现很好，继续努力。</string>
+    <string name="sport_tip_5">完成了今日的运动目标，非常棒！</string>
+</resources>

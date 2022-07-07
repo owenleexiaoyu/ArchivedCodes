@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.redant.childcare" >
+    <!--地图SDK（包含其搜索功能）需要的基础权限-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!--允许程序打开网络套接字-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--允许程序设置内置sd卡的写权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--允许程序获取网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许程序访问WiFi网络信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--Mob短信验证所用权限-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--推送所需的权限-->
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:name=".app.MyApplication"
+        android:icon="@mipmap/childcare"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!-- 高德地图开发者申请的key -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="9f0a8d3dc72d3259e3fdd7b43d9744c6" />
+        <activity android:name="com.redant.childcare.MainActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.redant.childcare.ui.LoginActivity"
+            android:label="登录"/>
+        <activity android:name="com.redant.childcare.ui.RegisterActivity"
+            android:label="注册"/>
+        <activity android:name="com.redant.childcare.ui.HtmlReaderActivity"
+            android:label="小知识"
+            android:parentActivityName=".ui.KnowladgeActivity"/>
+        <activity android:name="com.redant.childcare.ui.KnowladgeActivity"
+            android:label="小知识"/>
+        <activity android:name="com.redant.childcare.ui.WalkActivity"
+            android:label="记步"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".ui.ChartActivity"
+            android:label="统计"/>
+        <activity android:name=".ui.AboutActivity"
+            android:label="关于"/>
+        <activity android:name=".ui.SettingActivity"
+            android:label="设置"/>
+        <activity android:name=".ui.InfoActivity"
+            android:label="信息"/>
+        <activity android:name="com.redant.childcare.ui.MapActivity"
+            android:label="围栏"/>
+        <activity android:name="com.redant.childcare.ui.RedAntActivity"
+            android:label="红蚂蚁实验室"/>
+        <!--后台服务-->
+        <service android:name=".services.StepCounterService"/>
+        <service android:name=".services.FallService"/>
+        <service android:name="com.amap.api.location.APSService"></service>
+        <service android:name=".services.AlarmService"/>
+        <receiver android:name=".receivers.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.redant.childcare.utils.clock"/>
+            </intent-filter>
+        </receiver>
+        <!--TODO 集成：1.2、添加推送所需要的服务和广播-->
+        <service
+            android:label="PushService"
+            android:name="cn.bmob.push.lib.service.PushService"
+            android:process=":bmobpush"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.bmob.push.lib.service.PushService"/>
+            </intent-filter>
+        </service>
+
+        <!-- 用于进程保活 -->
+        <service
+            android:name="cn.bmob.push.lib.service.PushNotifyService"
+            android:process=":bmobpush" >
+        </service>
+
+        <receiver android:name="cn.bmob.push.PushReceiver" >
+            <intent-filter>
+                <!-- 系统启动完成后会调用 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!-- 解锁完成后会调用 -->
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <!-- 监听网络连通性 -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 第3步中创建的消息接收器，在这里进行注册 -->
+        <receiver android:name=".receivers.MyPushReceiver">
+            <intent-filter >
+                <action android:name="cn.bmob.push.action.MESSAGE"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 接收心跳和唤醒的广播，要和PushService运行在同个进程 -->
+        <receiver
+            android:name="cn.bmob.push.PushNotifyReceiver"
+            android:process=":bmobpush" >
+            <intent-filter>
+                <!-- 接收心跳广播的action -->
+                <action android:name="cn.bmob.push.action.HEARTBEAT" />
+                <!-- 接收唤醒广播的action -->
+                <action android:name="cn.bmob.push.action.NOTIFY" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

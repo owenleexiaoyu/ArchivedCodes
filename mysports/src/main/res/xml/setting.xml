@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory
+        android:key="set_net"
+        android:title="个人信息" >
+        <EditTextPreference
+            android:id="@+id/sex"
+            android:title="性别"
+            android:summary="请输入性别"
+            android:defaultValue="1"
+            android:key="SEX"/>
+        <EditTextPreference
+            android:id="@+id/age"
+            android:title="年龄"
+            android:summary="请输入年龄"
+            android:defaultValue="20"
+            android:key="AGE"/>
+        <EditTextPreference
+            android:id="@+id/tall"
+            android:title="身高"
+            android:summary="请输入身高"
+            android:defaultValue="170"
+            android:key="HEIGHT"/>
+        <EditTextPreference
+            android:id="@+id/weight"
+            android:title="体重"
+            android:summary="请输入体重"
+            android:defaultValue="50"
+            android:key="WEIGHT"/>
+    </PreferenceCategory>
+</PreferenceScreen>
